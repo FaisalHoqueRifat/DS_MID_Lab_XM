@@ -6,25 +6,27 @@ int main()
     int n;
     cout<<"Enter the how many digit you want to add :- "<<endl;
     cin>>n;
-    int data[n];
-    for(int i = 0; i<n; i++)
+    int data[n+1];
+    for(int i = 1; i<=n; i++)
     {
         cin>>data[i];
     }
     int temp = 0;
-    for(int i = 0; i<n-1; i++)
+    for(int k = 1; k<n-1; k++)
     {
-        for(int j = i+1; j<n; j++)
+        int ptr = 1;
+        while(ptr<=n-k)
         {
-            if(data[i] > data[j])
+            if(data[ptr] > data[ptr+1])
             {
-                temp = data[i];
-                data[i] = data[j];
-                data[j] = temp;
+                temp = data[ptr];
+                data[ptr] = data[ptr+1];
+                data[ptr+1] = temp;
             }
+            ptr++;
         }
     }
-    for(int i = 0; i<n; i++)
+    for(int i = 1; i<=n; i++)
     {
         cout<<data[i]<<" ";
     }
